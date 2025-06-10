@@ -1,0 +1,14 @@
+# Ignore Eclipse-specific files
+.classpath
+.project
+.settings/
+
+# Ignore compiled files
+bin/
+
+# Ignore OS junk
+.DS_Store
+Thumbs.db
+
+# Ignore class files
+*.class
