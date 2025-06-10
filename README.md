@@ -1,10 +1,10 @@
-# 🏗️ Java Builder Design Pattern Example
+#  Java Builder Design Pattern Example
 
 This repository demonstrates how the **Builder Design Pattern** works in Java by manually implementing a `User` class and its builder, mimicking the behavior of Lombok’s `@Builder` annotation.
 
 ---
 
-## 📘 What is the Builder Design Pattern?
+## What is the Builder Design Pattern?
 
 The **Builder Design Pattern** is a **creational pattern** that allows the construction of complex objects **step-by-step**. It provides a clean solution for creating objects when:
 - A class has many parameters (especially optional ones).
@@ -13,7 +13,7 @@ The **Builder Design Pattern** is a **creational pattern** that allows the const
 
 ---
 
-## 🔁 Telescoping Constructors Problem
+##  Telescoping Constructors Problem
 
 Telescoping constructors require you to create many overloaded constructors to handle different combinations of parameters:
 
