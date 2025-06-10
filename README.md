@@ -22,3 +22,47 @@ User u1 = new User();                        // Constructor 1
 User u2 = new User("abc");                   // Constructor 2
 User u3 = new User("abc", 25);               // Constructor 3
 User u4 = new User("abc", 25, "India");      // Constructor 4
+```
+
+## Drawbacks
+
+- Hard to read and understand.
+- Too many constructors needed.
+- Difficult to manage optional fields.
+- Cannot skip optional parameters easily.
+
+## Builder Pattern
+
+```java
+User user = new User.UserBuilder()
+                .setName("abc")
+                .setAge(25)
+                .setCountry("India")
+                .build();
+```
+
+###  What's Happening in Memory?
+
+- **In Telescoping Constructors**:
+  - Each constructor call (e.g., `new User(...)`) creates a separate object in the heap.
+  - Every overloaded constructor results in a new memory allocation with a unique address.
+  - Even if only one field is different, a new object is created.
+
+- **In Builder Pattern**:
+  - A temporary `UserBuilder` object is created in the heap.
+  - Fields are set one by one through method chaining.
+  - When `.build()` is invoked:
+    - A single, final `User` object is created using the builder’s data.
+    - The `UserBuilder` object becomes **eligible for garbage collection** once it's no longer referenced.
+
+
+### Steps to Implement Builder Design Pattern
+
+- Create a class (can create immutable class also)
+- Define the fields as private
+- Create a static inner builder class
+- Create setters in builder class and return the reference of Builder
+- Create a build method in builder class and return the outer class object.
+- Use the builder to create the object 
+
+
