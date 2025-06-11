@@ -40,7 +40,6 @@ User user = new User.UserBuilder()
                 .setCountry("India")
                 .build();
 ```
-
 ###  What's Happening in Memory?
 
 - **In Telescoping Constructors**:
@@ -55,14 +54,39 @@ User user = new User.UserBuilder()
     - A single, final `User` object is created using the builder’s data.
     - The `UserBuilder` object becomes **eligible for garbage collection** once it's no longer referenced.
 
+---
 
 ### Steps to Implement Builder Design Pattern
 
-- Create a class (can create immutable class also)
+- Create a class in which you want to use this design pattern
 - Define the fields as private
 - Create a static inner builder class
-- Create setters in builder class and return the reference of Builder
+- - In the builder class, create setter-style methods that return the builder object (for method chaining).
 - Create a build method in builder class and return the outer class object.
 - Use the builder to create the object 
+
+---
+## 📌 Real-World Use Case
+
+Imagine a registration form where a user can fill name, age, country, address, phone number, etc. Some fields are optional.
+
+Instead of writing multiple constructors to handle all combinations, the Builder Pattern allows constructing the object only with the fields provided.
+
+## ✨ Lombok: `@Builder` Annotation
+
+If you're using Lombok, you can skip writing the entire builder manually:
+
+```java
+@Builder
+public class User {
+    private String name;
+    private int age;
+    private String country;
+}
+
+```
+> Note: Make sure Lombok is installed and your IDE supports annotation processing.
+
+Lombok automatically generates the inner static builder class, setter-style methods, and the build() method behind the scenes.
 
 
